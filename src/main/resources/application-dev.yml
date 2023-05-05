@@ -4,11 +4,23 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:mysql://211.253.11.149:3306/soundgramR2?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
+    url: jdbc:mysql://15.165.148.96:3306/sohot?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: sohot
     password: 1howtobiz
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  jpa:
+    hibernate:
+      ddl-auto: update #추후에 validate
+    properties:
+      hibernate:
+        #          show_sql: true
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
 log:
   config:
     path: ./logs
