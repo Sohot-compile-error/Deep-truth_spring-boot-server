@@ -38,16 +38,10 @@ fi
 
 echo "> 새 애플리케이션 배포"
 
-JAR_NAME=$(ls -tr $TARGET | grep jar | tail -n 1)
+JAR_NAME=$(ls -tr $TARGET | grep jar | grep -v plain  | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
 nohup java -jar \
        -Dspring.profiles.active=dev \
        $TARGET/$JAR_NAME > /dev/null 2>&1 &
-~
-~
-~
-~
-~
-~
