@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:h2:mem://localhost/~/testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+log:
+  config:
+    path: ./logs
+    filename: app-local
+    maxHistory: 10
+    totalSizeCap: 30MB

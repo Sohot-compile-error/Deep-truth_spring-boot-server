@@ -1,0 +1,21 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:mysql://211.253.11.149:3306/soundgramR2?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 1howtobiz
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+log:
+  config:
+    path: ./logs
+    filename: app-dev
+    maxHistory: 10
+    totalSizeCap: 30MB
+  level:
+    org.hibernate.type: trace
+    com.zaxxer.hikari.HikariConfig: trace
+    com.zaxxer.hikari: trace
