@@ -45,6 +45,7 @@ public class S3Service {
 				outputStream.write(buffer, 0, bytesRead);
 			log.info("File downloaded successfully.");
 		} catch (IOException e) {
+			log.info("File downloaded Fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			e.printStackTrace();
 		}
 	}
