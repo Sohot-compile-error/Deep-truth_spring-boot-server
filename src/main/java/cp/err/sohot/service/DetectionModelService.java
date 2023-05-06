@@ -38,7 +38,7 @@ public class DetectionModelService {
 	}
 
 	public int runModel() throws IOException {
-		String[] command = {"python", dir + (objectType.equals("video") ? videoModel : audioModel)};
+		String[] command = {"python", dir + (objectType.equals("video") ? videoModel : audioModel), "--feature_classname", "wave", "--model_classname TSSD", "--restore", "--eval_only"};
 		try {
 			ProcessBuilder pb = new ProcessBuilder(command);
 			pb.redirectErrorStream(true);

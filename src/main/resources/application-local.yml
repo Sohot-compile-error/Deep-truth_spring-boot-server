@@ -45,5 +45,5 @@ aws:
 
 file:
   path: /Users/2sssg/4-1/
-  videoModel: exec.py
-  audioModel: exec.py
+  videoModel: audio_deepfake_detect_model/exec.py
+  audioModel: audio_deepfake_detect_model/train.py
