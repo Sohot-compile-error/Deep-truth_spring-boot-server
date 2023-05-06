@@ -50,6 +50,7 @@ public class DetectionModelService {
 			String s;
 			int predictionRate = -1;
 			while ((s = in.readLine()) != null) {
+				log.info(s);
 				predictionRate = Integer.parseInt(s);
 			}
 //			deleteFile();
