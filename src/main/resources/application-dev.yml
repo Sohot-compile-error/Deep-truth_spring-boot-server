@@ -49,3 +49,6 @@ cloud:
 aws:
   s3:
     bucket: ${BUCKET}
+
+file:
+  path: /home/jms

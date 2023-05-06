@@ -1,6 +1,7 @@
 package cp.err.sohot.controller;
 
 
+import cp.err.sohot.dto.S3Dto;
 import cp.err.sohot.service.DetectionModelService;
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,20 +20,24 @@ public class DetectController {
 	private final DetectionModelService detectionModelService;
 
 	@PostMapping("/audio")
-	public ResponseEntity<?> audioDetect(@RequestBody String s3Url) throws IOException {
-		log.info("===================="+s3Url);
-		log.info("return : " + detectionModelService.exeModel(s3Url));
-		HashMap<String, Integer> returnOBJ = new HashMap<>();
-		returnOBJ.put("predictionRate", 80);
-		return ResponseEntity.ok().body(80);
+	public ResponseEntity<?> audioDetect(@RequestBody S3Dto s3Dto) throws IOException {
+		System.out.println(s3Dto);
+		HashMap<String, Integer> res = new HashMap<>();
+
+		int predictionRate = detectionModelService.exeModel(s3Dto.getUrl());
+		res.put("predictionRate", predictionRate);
+		return ResponseEntity.ok().body(res);
 	}
 
 
 	@PostMapping("/video")
-	public ResponseEntity<?> videoDetect(@RequestBody String s3Url) {
-		HashMap<String, Integer> returnOBJ = new HashMap<>();
-		returnOBJ.put("predictionRate", 80);
-		return ResponseEntity.ok().body(80);
+	public ResponseEntity<?> videoDetect(@RequestBody S3Dto s3Dto) throws IOException {
+		System.out.println(s3Dto);
+		HashMap<String, Integer> res = new HashMap<>();
+
+		int predictionRate = detectionModelService.exeModel(s3Dto.getUrl());
+		res.put("predictionRate", predictionRate);
+		return ResponseEntity.ok().body(res);
 	}
 
 

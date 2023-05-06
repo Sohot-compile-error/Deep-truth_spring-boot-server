@@ -13,7 +13,9 @@ public class DetectionModelService {
 
 	public int exeModel(String s3Url) throws IOException {
 		String temp = s3Url.split("sohot/")[1].replaceAll("\"}", "");
-		s3Service.getObject(temp);
+		String fileType = "";
+		if (temp.contains("wav")) fileType = "audio";
+		s3Service.getObject(fileType, temp);
 		return 80;
 	}
 }

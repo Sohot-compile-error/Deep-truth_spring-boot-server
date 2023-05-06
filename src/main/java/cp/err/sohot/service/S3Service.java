@@ -31,18 +31,22 @@ public class S3Service {
 	@Value("${aws.s3.bucket}")
 	private String bucket;
 
-	public void getObject(String storedFileName) throws IOException {
+	@Value("${file.path}")
+	private String dir;
+
+	public void getObject(String objectType, String storedFileName) {
+		String fileName = storedFileName.split("/")[1];
 		S3Object s3Object = amazonS3.getObject(new GetObjectRequest(bucket, storedFileName));
+
 		try (InputStream inputStream = s3Object.getObjectContent()) {
-			FileOutputStream outputStream = new FileOutputStream("");
+			FileOutputStream outputStream = new FileOutputStream(dir + objectType + "/" + fileName);
 			byte[] buffer = new byte[1024];
 			int bytesRead;
-			while ((bytesRead = inputStream.read(buffer)) != -1) {
+			while ((bytesRead = inputStream.read(buffer)) != -1)
 				outputStream.write(buffer, 0, bytesRead);
-			}
 			log.info("File downloaded successfully.");
 		} catch (IOException e) {
-			log.error("Error while downloading file: " + e.getMessage() + "      " + Arrays.toString(e.getStackTrace()));
+			e.printStackTrace();
 		}
 	}
 }

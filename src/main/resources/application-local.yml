@@ -41,3 +41,7 @@ cloud:
 aws:
   s3:
     bucket: ${BUCKET}
+
+
+file:
+  path: /Users/2sssg/4-1/
