@@ -24,8 +24,11 @@ public class DetectionModelService {
 	@Value("${file.path}")
 	private String dir;
 
-	@Value("${file.model}")
-	private String model;
+	@Value("${file.videoModel}")
+	private String videoModel;
+
+	@Value("${file.audioModel}")
+	private String audioModel;
 
 	public int getPredictionRate(String s3Url) throws IOException {
 		this.s3Url = s3Url;
@@ -35,7 +38,7 @@ public class DetectionModelService {
 	}
 
 	public int runModel() throws IOException {
-		String[] command = {"python", dir + model};
+		String[] command = {"python", dir + (objectType.equals("video") ? videoModel : audioModel)};
 		try {
 			ProcessBuilder pb = new ProcessBuilder(command);
 			pb.redirectErrorStream(true);

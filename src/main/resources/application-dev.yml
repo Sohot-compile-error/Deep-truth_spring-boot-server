@@ -52,4 +52,5 @@ aws:
 
 file:
   path: /home/jms
-  model: exec.py
+  videoModel: exec.py
+  audioModel: exec.py

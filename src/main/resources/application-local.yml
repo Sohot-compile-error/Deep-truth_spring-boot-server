@@ -45,4 +45,5 @@ aws:
 
 file:
   path: /Users/2sssg/4-1/
-  model: exec.py
+  videoModel: exec.py
+  audioModel: exec.py
