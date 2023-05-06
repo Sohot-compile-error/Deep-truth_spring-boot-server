@@ -52,3 +52,4 @@ aws:
 
 file:
   path: /home/jms
+  model: exec.py

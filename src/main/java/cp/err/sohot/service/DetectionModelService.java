@@ -2,6 +2,7 @@ package cp.err.sohot.service;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import lombok.RequiredArgsConstructor;
@@ -16,12 +17,15 @@ public class DetectionModelService {
 
 	private String storedFileName;
 
-	private String fileType;
+	private String objectType;
 
 	private final S3Service s3Service;
 
 	@Value("${file.path}")
 	private String dir;
+
+	@Value("${file.model}")
+	private String model;
 
 	public int getPredictionRate(String s3Url) throws IOException {
 		this.s3Url = s3Url;
@@ -31,7 +35,7 @@ public class DetectionModelService {
 	}
 
 	public int runModel() throws IOException {
-		String[] command = {"python", dir + "exec.py"};
+		String[] command = {"python", dir + model};
 		try {
 			ProcessBuilder pb = new ProcessBuilder(command);
 			pb.redirectErrorStream(true);
@@ -42,16 +46,23 @@ public class DetectionModelService {
 			while ((s = in.readLine()) != null) {
 				predictionRate = Integer.parseInt(s);
 			}
+			deleteFile();
 			return predictionRate;
 		} catch (Exception e) {
+			deleteFile();
 			return -1;
 		}
+	}
+
+	private void deleteFile() {
+		File file = new File(dir + objectType + "/" + objectType + (objectType.equals("audio") ? ".wav" : ".mp4"));
+		file.delete();
 	}
 
 	private void storedFile() {
 		setStoredFileName();
 		setFileType();
-		s3Service.getObject(this.fileType, this.storedFileName);
+		s3Service.getObject(this.objectType, this.storedFileName);
 	}
 
 	private void setStoredFileName() {
@@ -59,7 +70,7 @@ public class DetectionModelService {
 	}
 
 	private void setFileType() {
-		if (this.storedFileName.contains("wav")) this.fileType = "audio";
-		if (this.storedFileName.contains("mp4")) this.fileType = "video";
+		if (this.storedFileName.contains("wav")) this.objectType = "audio";
+		if (this.storedFileName.contains("mp4")) this.objectType = "video";
 	}
 }
