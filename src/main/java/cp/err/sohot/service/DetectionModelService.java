@@ -12,7 +12,8 @@ public class DetectionModelService {
 	private final S3Service s3Service;
 
 	public int exeModel(String s3Url) throws IOException {
-		s3Service.getObject("temp");
+		String temp = s3Url.split("sohot/")[1].replaceAll("\"}", "");
+		s3Service.getObject(temp);
 		return 80;
 	}
 }

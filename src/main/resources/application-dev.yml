@@ -48,4 +48,4 @@ cloud:
 
 aws:
   s3:
-    bucket: ${sohot}
+    bucket: ${BUCKET}

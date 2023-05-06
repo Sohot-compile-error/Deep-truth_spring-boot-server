@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,9 +33,8 @@ public class S3Service {
 
 	public void getObject(String storedFileName) throws IOException {
 		S3Object s3Object = amazonS3.getObject(new GetObjectRequest(bucket, storedFileName));
-
 		try (InputStream inputStream = s3Object.getObjectContent()) {
-			FileOutputStream outputStream = new FileOutputStream("/path/to/downloaded/file");
+			FileOutputStream outputStream = new FileOutputStream("");
 			byte[] buffer = new byte[1024];
 			int bytesRead;
 			while ((bytesRead = inputStream.read(buffer)) != -1) {
@@ -42,7 +42,7 @@ public class S3Service {
 			}
 			log.info("File downloaded successfully.");
 		} catch (IOException e) {
-			log.error("Error while downloading file: " + e.getMessage());
+			log.error("Error while downloading file: " + e.getMessage() + "      " + Arrays.toString(e.getStackTrace()));
 		}
 	}
 }
