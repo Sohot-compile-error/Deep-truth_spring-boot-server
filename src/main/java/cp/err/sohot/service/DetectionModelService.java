@@ -47,12 +47,14 @@ public class DetectionModelService {
 			pb.redirectErrorStream(true);
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			String s;
-			int predictionRate = -1;
-			while ((s = in.readLine()) != null) {
-				log.info("log :::: " + s);
-				predictionRate = Integer.parseInt(s);
+			String s = "-1";
+			while (true) {
+				String temp = in.readLine();
+				if (temp == null) break;
+				s = temp;
 			}
+
+			int predictionRate = Integer.parseInt(s);
 //			deleteFile();
 			return predictionRate;
 		} catch (Exception e) {
