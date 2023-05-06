@@ -5,10 +5,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class DetectionModelService {
@@ -52,6 +55,8 @@ public class DetectionModelService {
 //			deleteFile();
 			return predictionRate;
 		} catch (Exception e) {
+			log.info("run Fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			log.error(Arrays.toString(e.getStackTrace()));
 //			deleteFile();
 			return -1;
 		}
