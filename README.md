@@ -2,6 +2,10 @@
 
 Deep Truth
 
+## Architecture
+
+![Untitled](Untitled.png)
+
 ## Getting Started
 
 이 작업물은 2023 항공대학교 쏘-핫 해커톤 제출물 입니다. 
@@ -43,6 +47,3 @@ logger config, aws s3 config
 * **이석잔** - *developer* - [2sssg](https://github.com/2sssg)
 
 
-## Architecture
-
-![Untitled](Untitled.png)
