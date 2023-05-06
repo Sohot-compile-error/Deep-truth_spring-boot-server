@@ -42,3 +42,6 @@ logger config, aws s3 config
 * **정민석** - *Initial work* - [JamesDev51](https://github.com/JamesDev51)
 * **이석잔** - *developer* - [2sssg](https://github.com/2sssg)
 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f038d8c1-0b94-41a9-9e2f-21c145f9b6c6/Untitled.png)
+
