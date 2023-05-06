@@ -52,6 +52,7 @@ public class DetectionModelService {
 				String temp = in.readLine();
 				if (temp == null) break;
 				s = temp;
+				log.info("log :::::::::" + s);
 			}
 
 			int predictionRate = Integer.parseInt(s);
