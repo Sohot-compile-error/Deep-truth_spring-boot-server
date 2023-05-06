@@ -53,4 +53,4 @@ aws:
 file:
   path: /home/jms/
   videoModel: audio_deepfake_detect_model/exec.py
-  audioModel: audio_deepfake_detect_model/train.py
+  audioModel: cp-server/src/main/resources/AudioDeepFakeDetection_copy/train.py
