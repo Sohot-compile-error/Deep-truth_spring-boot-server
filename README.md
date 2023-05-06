@@ -43,5 +43,5 @@ logger config, aws s3 config
 * **이석잔** - *developer* - [2sssg](https://github.com/2sssg)
 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f038d8c1-0b94-41a9-9e2f-21c145f9b6c6/Untitled.png)
+https://file.notion.so/f/s/f038d8c1-0b94-41a9-9e2f-21c145f9b6c6/Untitled.png?id=052e2c22-d8e8-4d3d-9e68-692b6a339833&table=block&spaceId=1635ed44-a46b-4f03-be72-2ce4d63d6564&expirationTimestamp=1683495657501&signature=7zXS13nIWZmALjK4f9byxRAZ1K3nfjN_JrQf74yJRIk&downloadName=Untitled.png
 
