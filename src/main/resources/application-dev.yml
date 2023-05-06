@@ -9,9 +9,10 @@ spring:
     password: 1howtobiz
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+
   jpa:
     hibernate:
-      ddl-auto: update #추후에 validate
+      ddl-auto: create #추후에 validate
     properties:
       hibernate:
         #          show_sql: true
@@ -31,3 +32,20 @@ log:
     org.hibernate.type: trace
     com.zaxxer.hikari.HikariConfig: trace
     com.zaxxer.hikari: trace
+
+
+cloud:
+  aws:
+    credentials:
+      instance-profile: false
+      access-key: ${CLOUD_AWS_CREDENTIALS_ACCESSKEY}
+      secret-key: ${CLOUD_AWS_CREDENTIALS_SECRETKEY}
+    region:
+      auto: false
+      static: ap-northeast-2
+    stack:
+      auto: false
+
+aws:
+  s3:
+    bucket: ${sohot}
