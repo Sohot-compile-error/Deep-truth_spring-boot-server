@@ -24,7 +24,7 @@ public class DetectController {
 		System.out.println(s3Dto);
 		HashMap<String, Integer> res = new HashMap<>();
 
-		int predictionRate = detectionModelService.exeModel(s3Dto.getUrl());
+		int predictionRate = detectionModelService.getPredictionRate(s3Dto.getUrl());
 		res.put("predictionRate", predictionRate);
 		return ResponseEntity.ok().body(res);
 	}
@@ -35,7 +35,7 @@ public class DetectController {
 		System.out.println(s3Dto);
 		HashMap<String, Integer> res = new HashMap<>();
 
-		int predictionRate = detectionModelService.exeModel(s3Dto.getUrl());
+		int predictionRate = detectionModelService.getPredictionRate(s3Dto.getUrl());
 		res.put("predictionRate", predictionRate);
 		return ResponseEntity.ok().body(res);
 	}

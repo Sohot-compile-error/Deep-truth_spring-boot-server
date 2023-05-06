@@ -35,11 +35,10 @@ public class S3Service {
 	private String dir;
 
 	public void getObject(String objectType, String storedFileName) {
-		String fileName = storedFileName.split("/")[1];
 		S3Object s3Object = amazonS3.getObject(new GetObjectRequest(bucket, storedFileName));
 
 		try (InputStream inputStream = s3Object.getObjectContent()) {
-			FileOutputStream outputStream = new FileOutputStream(dir + objectType + "/" + fileName);
+			FileOutputStream outputStream = new FileOutputStream(dir + objectType + "/" + objectType + (objectType.equals("audio") ? ".wav" : ".mp4"));
 			byte[] buffer = new byte[1024];
 			int bytesRead;
 			while ((bytesRead = inputStream.read(buffer)) != -1)
