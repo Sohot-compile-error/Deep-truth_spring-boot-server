@@ -49,10 +49,10 @@ public class DetectionModelService {
 			while ((s = in.readLine()) != null) {
 				predictionRate = Integer.parseInt(s);
 			}
-			deleteFile();
+//			deleteFile();
 			return predictionRate;
 		} catch (Exception e) {
-			deleteFile();
+//			deleteFile();
 			return -1;
 		}
 	}
